@@ -1,0 +1,18 @@
+description: Input Processor for filtering micro-vibrations with a movement deadzone
+
+compatible: "zmk,input-processor-deadzone"
+
+include: ip_zero_param.yaml
+
+properties:
+  threshold:
+    type: int
+    required: true
+    description: |
+      Minimum cumulative movement magnitude (sum of abs(dx) + abs(dy))
+      before events pass through. Typical values: 5-20.
+  timeout-ms:
+    type: int
+    required: true
+    description: |
+      Idle timeout in ms after which accumulator resets. Typical: 100-500.
